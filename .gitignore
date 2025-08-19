@@ -1,0 +1,15 @@
+# Compilados / build
+target/
+bin/
+*.class
+
+# IDEs/OS
+.vscode/
+.idea/
+.project
+.classpath
+.settings/
+.DS_Store
+
+# Logs
+*.log
