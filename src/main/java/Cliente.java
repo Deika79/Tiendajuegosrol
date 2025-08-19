@@ -1,11 +1,23 @@
 import java.util.Objects;
 
+/**
+ * Representa un cliente de la tienda.
+ * @author David García
+ * @version 1.0
+ */
 public class Cliente {
     private String nombre;
     private String dni;
     private String telefono;
     private String email;
 
+    /**
+     * Crea un cliente.
+     * @param nombre nombre completo
+     * @param dni DNI único
+     * @param telefono teléfono de contacto
+     * @param email email de contacto
+     */
     public Cliente(String nombre, String dni, String telefono, String email) {
         this.nombre = nombre;
         this.dni = dni;
@@ -13,30 +25,25 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public String getDni() {
-        return dni;
-    }
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-    public String getTelefono() {
-        return telefono;
-    }
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    /** @return nombre del cliente */
+    public String getNombre() { return nombre; }
+    /** @param nombre nuevo nombre */
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    /** @return DNI del cliente */
+    public String getDni() { return dni; }
+    /** @param dni nuevo DNI */
+    public void setDni(String dni) { this.dni = dni; }
+
+    /** @return teléfono del cliente */
+    public String getTelefono() { return telefono; }
+    /** @param telefono nuevo teléfono */
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+
+    /** @return email del cliente */
+    public String getEmail() { return email; }
+    /** @param email nuevo email */
+    public void setEmail(String email) { this.email = email; }
 
     @Override
     public String toString() {
