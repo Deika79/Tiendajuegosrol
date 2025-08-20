@@ -1,14 +1,22 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Representa una venta: cliente + una o más líneas con juegos de rol.
+ * Calcula el total y guarda la fecha de la operación.
+ */
 public class Venta {
     private static int contador = 1;
 
-    private String idVenta;                // p.ej. V-1, V-2...
+    private String idVenta;
     private Cliente cliente;
-    private ArrayList<JuegoRol> lineasDeVenta; // Cada línea: un juego (cantidad 1). Puedes añadir el mismo juego varias veces.
+    private ArrayList<JuegoRol> lineasDeVenta;
     private LocalDate fecha;
 
+    /**
+     * Crea una venta asociada a un cliente.
+     * @param cliente cliente que realiza la compra
+     */
     public Venta(Cliente cliente) {
         this.idVenta = "V-" + (contador++);
         this.cliente = cliente;
@@ -16,26 +24,28 @@ public class Venta {
         this.fecha = LocalDate.now();
     }
 
-    public String getIdVenta() {
-        return idVenta;
-    }
+    /** @return identificador de la venta (p.ej. V-1) */
+    public String getIdVenta() { return idVenta; }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+    /** @return cliente asociado */
+    public Cliente getCliente() { return cliente; }
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
+    /** @return fecha de la venta */
+    public LocalDate getFecha() { return fecha; }
 
-    public void addJuego(JuegoRol juego) {
-        lineasDeVenta.add(juego);
-    }
+    /**
+     * Añade un juego a la venta (1 unidad).
+     * @param juego juego a añadir
+     */
+    public void addJuego(JuegoRol juego) { lineasDeVenta.add(juego); }
 
-    public ArrayList<JuegoRol> getLineasDeVenta() {
-        return lineasDeVenta;
-    }
+    /** @return líneas de venta (lista de juegos) */
+    public ArrayList<JuegoRol> getLineasDeVenta() { return lineasDeVenta; }
 
+    /**
+     * Calcula el importe total sumando los precios de las líneas.
+     * @return total en euros
+     */
     public double calcularTotal() {
         double total = 0;
         for (JuegoRol j : lineasDeVenta) total += j.getPrecio();
